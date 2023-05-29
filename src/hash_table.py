@@ -32,3 +32,4 @@ class HashTable:
         for i, entry in enumerate(self.table[index]):
             if entry[0] == key:
                 del self.table[index][i]
+                return
