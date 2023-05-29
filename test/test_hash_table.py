@@ -13,3 +13,15 @@ class TestHashTable:
 
         # then
         assert hash_table.get_size() == hash_table_size
+
+    def test_insert_two_elements_to_hahs_table_and_get_them(self):
+        #given
+        table = HashTable(5)
+
+        #when
+        table.insert("key1", "value1")
+        table.insert("key2", "value2")
+
+        #then
+        assert table.get("key1") == "value1"
+        assert table.get("key2") == "value2"
