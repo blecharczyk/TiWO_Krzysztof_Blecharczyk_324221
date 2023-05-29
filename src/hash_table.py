@@ -13,12 +13,12 @@ class HashTable:
         return hash_value % self.size
 
     def insert(self, key, value):
-        self.table[self._hash_function(key)].append([key, value])
-        for entry in self.table[self._hash_function(key)]:
+        index = self._hash_function(key)
+        for entry in self.table[index]:
             if entry[0] == key:
                 entry[1] = value
-
-        self.table[self._hash_function(key)].append([key, value])
+                return
+        self.table[index].append([key, value])
 
     def get(self, key):
         index = self._hash_function(key)
