@@ -34,3 +34,10 @@ class HashTable:
                 del self.table[index][i]
                 return
         raise KeyError(f"Key '{key}' not found")
+
+    def print_hash_table(self):
+        for index, bucket in enumerate(self.table):
+            print(f"Index {index}:")
+            for entry in bucket:
+                print(f"  Key: {entry[0]}, Value: {entry[1]}")
+            print()
