@@ -26,3 +26,16 @@ class TestHashTable:
         #then
         assert table.get("key1") == "value1"
         assert table.get("key2") == "value2"
+
+
+    def test_insert_two_elements_and_handle_collision(self):
+        #given
+        table = HashTable(10)
+
+        #when
+        table.insert('key', 'value')
+        table.insert('key2', 'value2')
+
+        #then
+        assert table.get('key') == 'value'
+        assert table.get('key2') == 'value2'
