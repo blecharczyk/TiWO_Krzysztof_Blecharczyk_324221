@@ -66,3 +66,15 @@ class TestHashTable:
         with pytest.raises(KeyError):
             table.get('key')
         assert table.get('key1') == 'value1'
+
+
+    def test_remove_nonexistent_key(self):
+        #given
+        table = HashTable(10)
+
+        #when
+        table.insert('key1', 'value1')
+
+        #then
+        with pytest.raises(KeyError):
+            table.remove('nonexistent_key')
