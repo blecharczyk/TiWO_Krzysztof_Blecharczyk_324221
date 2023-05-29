@@ -25,3 +25,10 @@ class HashTable:
         for entry in self.table[index]:
             if entry[0] == key:
                 return entry[1]
+        raise KeyError(f"Key '{key}' not found")
+
+    def remove(self, key):
+        index = self._hash_function(key)
+        for i, entry in enumerate(self.table[index]):
+            if entry[0] == key:
+                del self.table[index][i]
