@@ -39,3 +39,15 @@ class TestHashTable:
         #then
         assert table.get('key') == 'value'
         assert table.get('key2') == 'value2'
+
+
+    def test_update_existing_key(self):
+        #given
+        table = HashTable(10)
+
+        #when
+        table.insert('key1', 'value1')
+        table.insert('key1', 'new_value')
+
+        #then
+        assert table.get('key1') == 'new_value'
