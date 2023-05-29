@@ -51,3 +51,18 @@ class TestHashTable:
 
         #then
         assert table.get('key1') == 'new_value'
+
+
+    def test_remove_existing_element(self):
+        #given
+        table = HashTable(10)
+        table.insert('key', 'value')
+        table.insert('key1', 'value1')
+
+        #when
+        table.remove('key')
+
+        #then
+        with pytest.raises(KeyError):
+            table.get('key')
+        assert table.get('key1') == 'value1'
