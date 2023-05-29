@@ -17,5 +17,6 @@ class HashTable:
 
     def get(self, key):
         index = self._hash_function(key)
-        print(self.table[index])
-        return self.table[index][0][1]
+        for entry in self.table[index]:
+            if entry[0] == key:
+                return entry[1]
