@@ -7,17 +7,15 @@ class HashTable:
         return self.size
 
     def _hash_function(self, key):
-        hv = 0
+        hash_value = 0
         for char in key:
-            hv += ord(char)
-        return hv % self.size
+            hash_value += ord(char)
+        return hash_value % self.size
 
     def insert(self, key, value):
-        index = self._hash_function(key)
-        self.table[index].append([key, value])
+        self.table[self._hash_function(key)].append([key, value])
 
     def get(self, key):
         index = self._hash_function(key)
         print(self.table[index])
-        x = self.table[index][0][1]
-        return x
+        return self.table[index][0][1]

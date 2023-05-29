@@ -14,6 +14,7 @@ class TestHashTable:
         # then
         assert hash_table.get_size() == hash_table_size
 
+
     def test_insert_two_elements_to_hahs_table_and_get_them(self):
         #given
         table = HashTable(5)
