@@ -33,3 +33,4 @@ class HashTable:
             if entry[0] == key:
                 del self.table[index][i]
                 return
+        raise KeyError(f"Key '{key}' not found")
