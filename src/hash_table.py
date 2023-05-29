@@ -3,4 +3,4 @@ class HashTable:
         self.size = size
 
     def get_size(self):
-        return 5
+        return self.size
