@@ -14,67 +14,62 @@ class TestHashTable:
         # then
         assert hash_table.get_size() == hash_table_size
 
-
     def test_insert_two_elements_to_hahs_table_and_get_them(self):
-        #given
+        # given
         table = HashTable(5)
 
-        #when
+        # when
         table.insert("key1", "value1")
         table.insert("key2", "value2")
 
-        #then
+        # then
         assert table.get("key1") == "value1"
         assert table.get("key2") == "value2"
 
-
     def test_insert_two_elements_and_handle_collision(self):
-        #given
+        # given
         table = HashTable(10)
 
-        #when
-        table.insert('key', 'value')
-        table.insert('key2', 'value2')
+        # when
+        table.insert("key", "value")
+        table.insert("key2", "value2")
 
-        #then
-        assert table.get('key') == 'value'
-        assert table.get('key2') == 'value2'
-
+        # then
+        assert table.get("key") == "value"
+        assert table.get("key2") == "value2"
 
     def test_update_existing_key(self):
-        #given
+        # given
         table = HashTable(10)
 
-        #when
-        table.insert('key1', 'value1')
-        table.insert('key1', 'new_value')
+        # when
+        table.insert("key1", "value1")
+        table.insert("key1", "new_value")
 
-        #then
-        assert table.get('key1') == 'new_value'
-
+        # then
+        assert table.get("key1") == "new_value"
 
     def test_remove_existing_element(self):
-        #given
+        # given
         table = HashTable(10)
-        table.insert('key', 'value')
-        table.insert('key1', 'value1')
+        table.insert("key", "value")
+        table.insert("key1", "value1")
 
-        #when
-        table.remove('key')
+        # when
+        table.remove("key")
 
-        #then
+        # then
         with pytest.raises(KeyError):
-            table.get('key')
-        assert table.get('key1') == 'value1'
-
+            table.get("key")
+        assert table.get("key1") == "value1"
 
     def test_remove_nonexistent_key(self):
-        #given
+        # given
         table = HashTable(10)
 
-        #when
-        table.insert('key1', 'value1')
+        # when
+        table.insert("key1", "value1")
 
-        #then
+        # then
         with pytest.raises(KeyError):
-            table.remove('nonexistent_key')
+            table.remove("nonexistent_key")
