@@ -2,7 +2,6 @@ from helpers.text_gui import TextGui
 
 
 def main():
-    print("Hello World!")
     gui = TextGui()
 
     running = True
