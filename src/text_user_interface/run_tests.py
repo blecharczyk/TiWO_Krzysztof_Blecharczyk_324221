@@ -17,7 +17,7 @@ class RunTests:
 
     def run_tests(self):
         command = (
-            "python -m pytest -v ./test/test_hash_table.py"  # Twoja komenda Linuxowa
+            "python -m pytest -v ./test/test_hash_table.py"
         )
         thread = threading.Thread(target=self.run_command, args=(command,))
         thread.start()

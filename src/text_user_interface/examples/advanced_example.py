@@ -1,11 +1,8 @@
-import os
 import time
 from src.hash_table import HashTable
 from src.helpers.terminal_colors import TerminalColors
-
-
-def clear_terminal():
-    os.system("cls" if os.name == "nt" else "clear")
+from src.helpers.utils import clear_terminal
+from src.helpers.hash_table_printer import HashTablePrinter
 
 
 class AdvancedExample:
@@ -13,6 +10,7 @@ class AdvancedExample:
         number = self.get_hash_table_size()
         self.hash_table = HashTable(number)
         self.step_number = 1
+        self.hash_table_printer = HashTablePrinter()
 
     def get_hash_table_size(self):
         while True:
@@ -29,23 +27,23 @@ class AdvancedExample:
                 else:
                     print(
                         TerminalColors.RED
-                        + "Value can not be zero"
+                        + "Value cannot be zero"
                         + TerminalColors.ENDC
                     )
             except ValueError:
-                print("Wrong number format. Try again.")
+                print("Number format is incorrect. Please try again.")
 
     def insert_element_and_print_step(self):
         key = input(TerminalColors.OKGREEN + "enter key: " + TerminalColors.ENDC)
         value = input(TerminalColors.RED + "enter value: " + TerminalColors.ENDC)
         clear_terminal()
         print(
-            f"Step {self.step_number} - Insert or update element: {TerminalColors.OKGREEN + key + TerminalColors.ENDC}, {TerminalColors.RED + value + TerminalColors.ENDC}\n\n *** \n"
+            f"Step {self.step_number} - insert or update element: {TerminalColors.OKGREEN + key + TerminalColors.ENDC}, {TerminalColors.RED + value + TerminalColors.ENDC}\n\n *** \n"
         )
         self.step_number += 1
         time.sleep(1)
         self.hash_table.insert(key, value)
-        self.hash_table.print_hash_table_with_color(key)
+        self.hash_table_printer.print_hash_table_with_color(self.hash_table, key)
 
         time.sleep(3)
         clear_terminal()
@@ -56,7 +54,7 @@ class AdvancedExample:
             TerminalColors.OKGREEN + "enter key to remove: " + TerminalColors.ENDC
         )
         print(
-            f"Step {self.step_number} - Removing {TerminalColors.OKGREEN + key + TerminalColors.ENDC} element\n\n *** \n"
+            f"Step {self.step_number} - remove {TerminalColors.OKGREEN + key + TerminalColors.ENDC} element\n\n *** \n"
         )
         self.step_number += 1
         time.sleep(1)
@@ -65,13 +63,13 @@ class AdvancedExample:
         except KeyError:
             print(
                 TerminalColors.RED
-                + "Can not remove nonexisting element"
+                + "Non-existent item cannot be removed"
                 + TerminalColors.ENDC
             )
             time.sleep(3)
             clear_terminal()
             return
-        self.hash_table.print_hash_table()
+        self.hash_table_printer.print_hash_table(self.hash_table)
 
         time.sleep(3)
         clear_terminal()
@@ -80,16 +78,16 @@ class AdvancedExample:
         print(
             "Advanced Example Menu:\n"
             + TerminalColors.RED
-            + "1. Add element to hash table\n"
+            + "1. Insert item into hash table\n"
             + TerminalColors.OKGREEN
-            + "2. Remove element from hash table\n"
+            + "2. Remove item from hash table\n"
             + TerminalColors.WARNING
-            + "3. Exit Advanced Example menu\n"
+            + "3. Exit\n"
             + TerminalColors.ENDC
         )
 
         print("\n**** Hash Table ****\n")
-        self.hash_table.print_hash_table()
+        self.hash_table_printer.print_hash_table(self.hash_table)
         print("****")
 
     def show_advanced_example(self):
@@ -97,7 +95,7 @@ class AdvancedExample:
 
         while True:
             self.show_advanced_example_menu()
-            wybor = input("Wybierz opcję: ")
+            wybor = input("Select option: ")
             if wybor == "1":
                 self.insert_element_and_print_step()
             elif wybor == "2":
@@ -105,16 +103,19 @@ class AdvancedExample:
             elif wybor == "3":
                 break
             else:
+                clear_terminal()
                 print(
                     TerminalColors.RED
-                    + "Wrong value, please try again"
+                    + "Given value is incorrect. Please try again."
                     + TerminalColors.ENDC
                 )
+                time.sleep(1)
+                clear_terminal()
 
         clear_terminal()
         print(
             TerminalColors.OKCYAN
-            + "This was a presentation of a advanced example"
+            + "This was a presentation of an advanced example"
             + TerminalColors.ENDC
         )
 

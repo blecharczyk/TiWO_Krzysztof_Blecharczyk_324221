@@ -1,4 +1,4 @@
-from src.helpers.text_gui import TextGui
+from src.text_user_interface.text_gui import TextGui
 
 
 def main():
@@ -8,7 +8,7 @@ def main():
 
     while running:
         gui.display_menu()
-        choice = input("Wybierz opcję: ")
+        choice = input("Select option: ")
         running = gui.process_choice(choice)
 
 

@@ -37,22 +37,3 @@ class HashTable:
                 del self.table[index][i]
                 return
         raise KeyError(f"Key '{key}' not found")
-
-    def print_hash_table(self):
-        for index, bucket in enumerate(self.table):
-            print(f"Index {index}:")
-            for entry in bucket:
-                print(f"  Key: {entry[0]}, Value: {entry[1]}")
-            print()
-
-    def print_hash_table_with_color(self, key):
-        for index, bucket in enumerate(self.table):
-            print(f"Index {index}:")
-            for entry in bucket:
-                if entry[0] == key:
-                    print(
-                        f"  Key: {TerminalColors.OKGREEN + entry[0] + TerminalColors.ENDC}, Value: {TerminalColors.RED + entry[1] + TerminalColors.ENDC}"
-                    )
-                else:
-                    print(f"  Key: {entry[0]}, Value: {entry[1]}")
-            print()
