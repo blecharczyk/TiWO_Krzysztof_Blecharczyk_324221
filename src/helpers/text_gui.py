@@ -1,6 +1,12 @@
 from src.helpers.terminal_colors import TerminalColors
 from src.helpers.predefined_example import PredefinedExample
+from src.helpers.advanced_example import AdvancedExample
 from src.helpers.run_tests import RunTests
+import os
+
+
+def clear_terminal():
+    os.system("cls" if os.name == "nt" else "clear")
 
 
 class TextGui:
@@ -28,6 +34,9 @@ class TextGui:
             predefined_example.show_predefined_example()
         elif choice == "2":
             print("Option 2")
+            clear_terminal()
+            advanced_example = AdvancedExample()
+            advanced_example.show_advanced_example()
         elif choice == "3":
             print("Option 3 - running tests\n")
             run_tests = RunTests()
