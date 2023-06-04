@@ -1,4 +1,4 @@
-from helpers.text_gui import TextGui
+from src.helpers.text_gui import TextGui
 
 
 def main():

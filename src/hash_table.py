@@ -1,4 +1,4 @@
-from helpers.terminal_colors import TerminalColors
+from src.helpers.terminal_colors import TerminalColors
 
 
 class HashTable:

@@ -1,7 +1,7 @@
 import os
 import time
-from hash_table import HashTable
-from helpers.terminal_colors import TerminalColors
+from src.hash_table import HashTable
+from src.helpers.terminal_colors import TerminalColors
 
 
 def clear_terminal():
